@@ -8,18 +8,44 @@
 </head>
 
 <body>
-    <h1>Doge</h1>
-    <div id="app">
+    <h1>Escape from Dogs</h1>
+    <div id="app" class="main-container">
         <p>{{message}}</p>
         <div v-if="stage < 0">
             <img v-bind:src="img" v-bind:alt="current.alt">
         </div>
-        <div v-else>
+        <div v-else-if="stage === 0">
             <p>It's 2021, and the world has been overrun by cute fuzzy dogs. They're so cute that people just take one look at them and become overwhelmed by their adorable charm. Then they stare off into space and start drooling indefinetly.</p>
             <p>What will you do?</p>
             <button v-on:click="sandwich">Make a sandwich</button>
-            
+            <button v-on:click="resist">Resist!</button>
+            <button v-on:click="scream">Give up</button>
         </div>
+        <div v-else-if="stage === 1">
+            <p>You've seen what happens to those who give in to the cuteness. Some haven't eaten or slept for days, and some look like they might be dead... and they're all covered in their own drool.</p>
+            <p>You won't give in! You will resist!</p>
+            <p>What will you do?</p>
+            <div>
+                <button v-on:click="senses">Deprive your senses</button>
+                <button v-on:click="knife">Grab a knife</button>
+                <button v-on:click="news">Watch the news</button>
+            </div>
+        </div>
+        <div v-else-if="stage === 2">
+            <p>It's no use trying to do anything when there are soft deadly cuddle monsters everywhere you look. You decide that your best bet is to blindfold yourself and use earplugs inorder to avoid becoming infatuated with any dogs.</p>
+            <p>Uh... What will you do?</p>
+            <div>
+                <form v-on:submit.prevent="endGame">
+                    <input type="text" v-model="endinput">
+                    <button type="submit">Try it!</button>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+            <a href="https://github.com/BYUCS260/lab-3-vue-SomeDonk">GitHub</a>
+        </footer>
     </div>
 
 
@@ -30,9 +56,6 @@
     <script src="script.js"></script>
 </body>
 
-<footer>
-    <hr>
-    <a href="https://github.com/BYUCS260/lab-3-vue-SomeDonk">GitHub</a>
-</footer>
+
 
 </html>

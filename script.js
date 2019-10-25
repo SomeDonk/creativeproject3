@@ -15,6 +15,7 @@ let app = new Vue(
     {
         this.getShibe();
         this.message = "";
+        this.endinput = "";
     },
     computed:
     {
@@ -50,6 +51,37 @@ let app = new Vue(
             this.message = "The dogs can smell your smelly sandwich smell.";
             this.message += " This is the last image you saw before you blacked out."
             this.stage = -1;
+        },
+        resist()
+        {
+            this.message = "";
+            this.stage++;
+        },
+        scream()
+        {
+            this.message = "You've always been dangerously enamored by dogs like these, and now that their cuteness is lethal you don't stand a chance.";
+            this.message += " This is the last image you saw before you blacked out."
+            this.stage = -1;
+        },
+        knife()
+        {
+            this.message = "It's useless, you try to stab one of the dogs but you just can't bring yourself to do it.";
+            this.message += " This is the last image you saw before you blacked out."
+            this.stage = -1;
+        },
+        senses()
+        {
+            this.message = "";
+            this.stage++;
+        },
+        endGame()
+        {
+            this.message = "\"" + this.endinput + "\"?? Are you serious? What were you thinking? Honestly though how did you even expect to be able to do anything with a blindfold on. Anyways, you try to \"" + this.endinput + "\" and in the process your blindfold comes off and you fail horribly. This is the last image you see before you black out.";
+            this.stage = -1;
+        },
+        news()
+        {
+            this.message = "All the channels are dead, the dogs must have gotten to them. The power has been going out a lot lately as well.";
         },
         async getShibe()
         {
